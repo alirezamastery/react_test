@@ -31,7 +31,7 @@ class Slider extends React.Component {
         return (
             <div>
                 <h1>{this.state.insideText}</h1>
-                <button onClick={this.handleClick}>click</button>
+                <button type="button" className="btn btn-primary" onClick={this.handleClick}>click</button>
             </div>
         )
     }
