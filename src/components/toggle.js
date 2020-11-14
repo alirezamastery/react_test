@@ -1,6 +1,35 @@
 import React from "react"
 
+
 class Slider extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            initMinValue: 0,
+            initMaxValue: 100
+        }
+    }
+
+    render() {
+        return (
+            <div className="container p-3 my-3 border">
+                <form>
+                    <div className="form-group">
+                        <label>محدوده هرچی</label>
+                        <input type="range"
+                               className="form-control-range"
+                               min={this.state.initMinValue}
+                               max={this.state.initMaxValue}
+                               id="rangeControl"/>
+                    </div>
+                </form>
+            </div>
+        )
+    }
+
+}
+
+class Toggle extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,13 +42,11 @@ class Slider extends React.Component {
 
     handleClick(event) {
         if (this.state.toggle) {
-            console.log('in if')
             this.setState({
                 insideText: this.props.text[1],
                 toggle: false
             })
         } else {
-            console.log('in else')
             this.setState({
                 insideText: this.props.text[0],
                 toggle: true
@@ -29,7 +56,7 @@ class Slider extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container p-3 my-3 border">
                 <h1>{this.state.insideText}</h1>
                 <button type="button" className="btn btn-primary" onClick={this.handleClick}>click</button>
             </div>
@@ -37,4 +64,4 @@ class Slider extends React.Component {
     }
 }
 
-export default Slider
+export {Toggle, Slider}
