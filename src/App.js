@@ -1,5 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
+import {Toggle} from "./components/toggle";
 
 function loadTweets(callback) {
     const xhr = new XMLHttpRequest()
@@ -40,6 +41,7 @@ function App() {
                     return <li>{tweet.content}</li>
                 })}
             </p>
+            <Toggle />
         </div>
     );
 }

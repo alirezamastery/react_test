@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 
 
 class Slider extends React.Component {
@@ -29,39 +29,28 @@ class Slider extends React.Component {
 
 }
 
-class Toggle extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            insideText: this.props.text[0],
-            toggle: true
-        }
-        console.log(props)
-        this.handleClick = this.handleClick.bind(this)
-    }
-
-    handleClick(event) {
-        if (this.state.toggle) {
-            this.setState({
-                insideText: this.props.text[1],
-                toggle: false
-            })
+function Toggle() {
+    const [text, setText] = useState('this is a test')
+    const [toggle, setToggle] = useState(false)
+    const handleClick = () => {
+        if (!toggle) {
+            console.log('if')
+            setToggle(true)
+            setText('not any more')
         } else {
-            this.setState({
-                insideText: this.props.text[0],
-                toggle: true
-            })
+            console.log('else')
+            setToggle(false)
+            setText('this is a test')
         }
     }
 
-    render() {
-        return (
-            <div className="container p-3 my-3 border">
-                <h1>{this.state.insideText}</h1>
-                <button type="button" className="btn btn-primary" onClick={this.handleClick}>click</button>
-            </div>
-        )
-    }
+    return (
+        <div className="container p-3 my-3 border">
+            <h1>{text}</h1>
+            <button type="button" className="btn btn-primary" onClick={handleClick}>click</button>
+        </div>
+    )
+
 }
 
 export {Toggle, Slider}
