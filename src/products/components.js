@@ -3,10 +3,12 @@ import loadTweets from "../lookup/components";
 
 
 function Product(props) {
-    const className = props.className ? props.className : 'col-10 mx-auto col-md-6'
+    const className = props.className ? props.className : 'container'
     return (
         <div className={className}>
-            <p>{props.product.name}</p>
+            <img className="img-thumbnail img-fluid" src={props.product.image} alt={props.product.name}/>
+            <h3>{props.product.name}</h3>
+            <p> قیمت: {props.product.price}</p>
         </div>
     )
 }
@@ -28,7 +30,7 @@ function ProductsList(props) {
 
     return products.map((item, index) => {
         return <Product product={item}
-                        className='my-5 py-5 border bg-white text-dark'
+                        className='container my-1 py-1 border text-dark col-3'
                         key={`${index}-{item.id}`}/>
     })
 }
