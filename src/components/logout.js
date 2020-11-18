@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axiosInstance from '../axios';
 import { useHistory } from 'react-router-dom';
 
-export default function SignUp() {
+export default function Logout() {
 	const history = useHistory();
 
 	useEffect(() => {

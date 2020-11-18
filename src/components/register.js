@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axiosInstance from '../axios';
 import { useHistory } from 'react-router-dom';
-//MaterialUI
+//MaterialUI:
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SignUp() {
+export default function Register() {
 	const history = useHistory();
 	const initialFormData = Object.freeze({
 		email: '',
@@ -57,7 +57,7 @@ export default function SignUp() {
 		console.log(formData);
 
 		axiosInstance
-			.post(`user/create/`, {
+			.post(`user/register/`, {
 				email: formData.email,
 				user_name: formData.username,
 				password: formData.password,
@@ -75,7 +75,7 @@ export default function SignUp() {
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />
 			<div className={classes.paper}>
-				<Avatar className={classes.avatar}></Avatar>
+				<Avatar className={classes.avatar}>why was this empty?</Avatar>
 				<Typography component="h1" variant="h5">
 					Sign up
 				</Typography>
@@ -133,7 +133,7 @@ export default function SignUp() {
 						className={classes.submit}
 						onClick={handleSubmit}
 					>
-						Sign Up
+						ثبت نام
 					</Button>
 					<Grid container justify="flex-end">
 						<Grid item>
