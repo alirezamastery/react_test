@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
 	const history = useHistory();
 	const initialFormData = Object.freeze({
-		email: '',
+		username: '',
 		password: '',
 	});
 
@@ -56,7 +56,7 @@ export default function Login() {
 
 		axiosInstance
 			.post(`token/`, {
-				email: formData.email,
+				username: formData.username,
 				password: formData.password,
 			})
 			.then((res) => {
@@ -65,7 +65,7 @@ export default function Login() {
 				axiosInstance.defaults.headers['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token');
 				history.push('/');
-				//console.log(res);
+				console.log(res);
 				//console.log(res.data);
 			});
 	};
@@ -86,10 +86,10 @@ export default function Login() {
 						margin="normal"
 						required
 						fullWidth
-						id="email"
-						label="Email Address"
-						name="email"
-						autoComplete="email"
+						id="username"
+						label="نام کاربری"
+						name="username"
+						autoComplete="username"
 						autoFocus
 						onChange={handleChange}
 					/>
@@ -99,7 +99,7 @@ export default function Login() {
 						required
 						fullWidth
 						name="password"
-						label="Password"
+						label="رمز عبور"
 						type="password"
 						id="password"
 						autoComplete="current-password"

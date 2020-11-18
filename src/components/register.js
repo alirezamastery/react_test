@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Register() {
 	const history = useHistory();
 	const initialFormData = Object.freeze({
-		email: '',
 		username: '',
+		phone_number: '',
 		password: '',
 	});
 
@@ -58,8 +58,8 @@ export default function Register() {
 
 		axiosInstance
 			.post(`user/register/`, {
-				email: formData.email,
-				user_name: formData.username,
+				username: formData.username,
+				phone_number: formData.phone_number,
 				password: formData.password,
 			})
 			.then((res) => {
@@ -75,7 +75,7 @@ export default function Register() {
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />
 			<div className={classes.paper}>
-				<Avatar className={classes.avatar}>why was this empty?</Avatar>
+				<Avatar className={classes.avatar}></Avatar>
 				<Typography component="h1" variant="h5">
 					Sign up
 				</Typography>
@@ -86,10 +86,10 @@ export default function Register() {
 								variant="outlined"
 								required
 								fullWidth
-								id="email"
-								label="Email Address"
-								name="email"
-								autoComplete="email"
+								id="username"
+								label="نام کاربری"
+								name="username"
+								autoComplete="username"
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -98,10 +98,10 @@ export default function Register() {
 								variant="outlined"
 								required
 								fullWidth
-								id="username"
-								label="Username"
-								name="username"
-								autoComplete="username"
+								id="phone_number"
+								label="شماره همراه"
+								name="phone_number"
+								autoComplete="phone_number"
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -121,7 +121,7 @@ export default function Register() {
 						<Grid item xs={12}>
 							<FormControlLabel
 								control={<Checkbox value="allowExtraEmails" color="primary" />}
-								label="I want to receive inspiration, marketing promotions and updates via email."
+								label="خبرنامه و ازین جور چیزا"
 							/>
 						</Grid>
 					</Grid>
@@ -138,7 +138,7 @@ export default function Register() {
 					<Grid container justify="flex-end">
 						<Grid item>
 							<Link href="#" variant="body2">
-								Already have an account? Sign in
+								قبلا ثبت نام کرده اید؟ وارد شوید
 							</Link>
 						</Grid>
 					</Grid>
