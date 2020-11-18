@@ -1,23 +1,29 @@
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import React, {useState} from 'react';
-import {ProductsList} from "./products/components";
-import {BrowserRouter as Router} from 'react-router-dom'
-import BaseRouter from "./routes";
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import CustomLayout from "./containers/Layout";
-import ArticleList from "./containers/ArticleListView";
+import Posts from './components/Posts';
+import PostLoadingComponent from './components/PostLoading';
 
 function App() {
+	const PostLoading = PostLoadingComponent(Posts);
+	const [appState, setAppState] = useState({
+		loading: false,
+		posts: null,
+	});
 
-    return (
-        <div className="App">
-            <Router>
-                <CustomLayout>
-                    <BaseRouter/>
-                </CustomLayout>
-            </Router>
-        </div>
-    );
+	useEffect(() => {
+		setAppState({ loading: true });
+		const apiUrl = `http://127.0.0.1:8000/api/`;
+		fetch(apiUrl)
+			.then((data) => data.json())
+			.then((posts) => {
+				setAppState({ loading: false, posts: posts });
+			});
+	}, [setAppState]);
+	return (
+		<div className="App">
+			<h1>Latest Posts</h1>
+			<PostLoading isLoading={appState.loading} posts={appState.posts} />
+		</div>
+	);
 }
-
 export default App;
