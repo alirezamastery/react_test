@@ -13,7 +13,7 @@ function App() {
         <div className="App">
             <Router>
                 <CustomLayout>
-                    <ArticleList/>
+                    <BaseRouter/>
                 </CustomLayout>
             </Router>
         </div>
