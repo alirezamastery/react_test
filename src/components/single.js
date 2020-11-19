@@ -35,6 +35,7 @@ export default function Product() {
 			<div className={classes.paper}></div>
 			<div className={classes.heroContent}>
 				<Container maxWidth="sm">
+					<p>show this</p>
 					<Typography
 						component="h1"
 						variant="h2"
