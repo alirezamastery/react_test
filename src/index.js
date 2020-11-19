@@ -21,7 +21,7 @@ const routing = (
 				<Route path="/register" component={Register} />
 				<Route path="/login" component={Login} />
 				<Route path="/logout" component={Logout} />
-				<Route path="/post/:slug" component={Product} />
+				<Route path="/products/:slug" component={Product} />
             </Switch>
             <Footer/>
         </React.StrictMode>

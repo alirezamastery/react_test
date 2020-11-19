@@ -25,15 +25,16 @@ function loadProducts(callback) {
 
 
 const useFetch = (url , callback) => {
-    const [state, setState] = useState({data: null, loading: true});
+    // const [state, setState] = useState({data: null, loading: true});
 
     useEffect(() => {
-        setState(state => ({data: state.date, loading: true}));
+        // setState(state => ({data: state.date, loading: true}));
 
         fetch(url)
             .then(x => x.json())
             .then(y => {
-                setState({data: y, loading: false})
+                // setState({data: y, loading: false})
+                console.log('in fetch' , y)
                 callback(y)
             })
 
