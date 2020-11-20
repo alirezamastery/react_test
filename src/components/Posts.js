@@ -43,43 +43,55 @@ const Posts = (props) => {
     return (
         <React.Fragment>
             <Container maxWidth="md" component="main">
-                <Grid container spacing={2} alignItems="flex-end">
+                <Grid container spacing={2} alignItems="flex-start">
                     {posts.map((post) => {
                         return (
                             // Enterprise card is full width at sm breakpoint
                             <Grid item key={post.id} xs={12} md={4}>
-                                <Card className={classes.card}>
-                                    <Link
-                                        color="textPrimary"
-                                        href={'products/' + post.slug}
-                                        className={classes.link}
-                                    >
-                                        <CardMedia
-                                            className={classes.cardMedia}
-                                            image={post.image}
-                                            title="Image title"
-                                        />
-                                    </Link>
-                                    <CardContent className={classes.cardContent}>
-                                        <Typography
-                                            gutterBottom
-                                            variant="h6"
-                                            component="h2"
-                                            className={classes.postTitle}
-                                        >
-                                            {post.name.substr(0, 50)}
-                                        </Typography>
-                                        <Typography>
-                                            {`${post.price} تومان`}
-                                        </Typography>
-                                        <div className={classes.postText}>
-                                            <Typography variant="p" color="textSecondary">
-                                                {/*the ... is just shows three dots at the end of sentence*/}
-                                                {post.description.substr(0, 60)}
-                                            </Typography>
-                                        </div>
-                                    </CardContent>
-                                </Card>
+                                <div className='container border my-1 py-1 border text-dark'>
+                                    <a href={'products/' + post.slug}>
+                                        <img className="img-thumbnail img-fluid"
+                                             src={post.image}
+                                             style={{width: 190, height: 190}}
+                                             alt={post.name}/>
+                                    </a>
+                                    <a href={'products/' + post.slug}>
+                                        <h3>{post.name}</h3>
+                                    </a>
+                                    <p> قیمت: {post.price}</p>
+                                </div>
+                                {/*<Card className={classes.card}>*/}
+                                {/*    <Link*/}
+                                {/*        color="textPrimary"*/}
+                                {/*        href={'products/' + post.slug}*/}
+                                {/*        className={classes.link}*/}
+                                {/*    >*/}
+                                {/*        <CardMedia*/}
+                                {/*            className={classes.cardMedia}*/}
+                                {/*            image={post.image}*/}
+                                {/*            title="Image title"*/}
+                                {/*        />*/}
+                                {/*    </Link>*/}
+                                {/*    <CardContent className={classes.cardContent}>*/}
+                                {/*        <Typography*/}
+                                {/*            gutterBottom*/}
+                                {/*            variant="h6"*/}
+                                {/*            component="h2"*/}
+                                {/*            className={classes.postTitle}*/}
+                                {/*        >*/}
+                                {/*            {post.name.substr(0, 50)}*/}
+                                {/*        </Typography>*/}
+                                {/*        <Typography>*/}
+                                {/*            {`${post.price} تومان`}*/}
+                                {/*        </Typography>*/}
+                                {/*        <div className={classes.postText}>*/}
+                                {/*            <Typography variant="p" color="textSecondary">*/}
+                                {/*                /!*the ... is just shows three dots at the end of sentence*!/*/}
+                                {/*                {post.description.substr(0, 60)}*/}
+                                {/*            </Typography>*/}
+                                {/*        </div>*/}
+                                {/*    </CardContent>*/}
+                                {/*</Card>*/}
                             </Grid>
                         );
                     })}

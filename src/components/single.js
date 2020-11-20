@@ -46,9 +46,6 @@ export default function Product() {
             <div className={classes.paper}></div>
             <div className={classes.heroContent}>
                 <Container maxWidth="sm">
-                    <CardMedia
-                        image={data.image}
-                    />
                     <img src={data.image}/>
                     <Typography
                         component="h1"
