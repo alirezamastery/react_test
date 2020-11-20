@@ -11,6 +11,7 @@ import Register from './components/register';
 import Login from './components/login';
 import Logout from './components/logout';
 import Product from "./components/single";
+import Search from "./components/search";
 
 const routing = (
     <Router>
@@ -22,6 +23,7 @@ const routing = (
 				<Route path="/login" component={Login} />
 				<Route path="/logout" component={Logout} />
 				<Route path="/products/:slug" component={Product} />
+				<Route path="/products" component={Search} />
             </Switch>
             <Footer/>
         </React.StrictMode>

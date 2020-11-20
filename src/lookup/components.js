@@ -34,7 +34,7 @@ const useFetch = (url , callback) => {
             .then(x => x.json())
             .then(y => {
                 // setState({data: y, loading: false})
-                console.log('in fetch' , y)
+                console.log('in useFetch: ' , y)
                 callback(y)
             })
 

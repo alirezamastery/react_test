@@ -41,17 +41,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Search = () => {
     const classes = useStyles();
-    const search = '';
+    const search = 'products';
     const [appState, setAppState] = useState({
         search: '',
         posts: [],
     });
 
     useEffect(() => {
+        console.log('in Search: ',window.location.search )
         axiosInstance.get(search + '/' + window.location.search).then((res) => {
             const allPosts = res.data;
             setAppState({posts: allPosts});
-            console.log(res.data);
         });
     }, [setAppState]);
 
@@ -71,7 +71,7 @@ const Search = () => {
                                     >
                                         <CardMedia
                                             className={classes.cardMedia}
-                                            image="https://source.unsplash.com/random"
+                                            image={post.image}
                                             title="Image title"
                                         />
                                     </Link>
@@ -82,11 +82,11 @@ const Search = () => {
                                             component="h2"
                                             className={classes.postTitle}
                                         >
-                                            {post.title.substr(0, 50)}...
+                                            {post.name}
                                         </Typography>
                                         <div className={classes.postText}>
                                             <Typography color="textSecondary">
-                                                {post.excerpt.substr(0, 40)}...
+                                                {post.description}
                                             </Typography>
                                         </div>
                                     </CardContent>

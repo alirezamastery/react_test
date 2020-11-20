@@ -38,7 +38,6 @@ export default function Product() {
     const url = `http://127.0.0.1:8000/api/products/${slug}`
     useFetch(url, callback)  //TODO create our own API calling function with error handling
 
-    console.log('data',data)
 
     return (
         <Container component="main" maxWidth="md">
