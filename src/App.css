@@ -1,3 +1,11 @@
+body {
+    font-family: IRANSansWeb, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 0;
+    /*direction: rtl;*/
+}
+
 /*.App {*/
 /*  text-align: center;*/
 /*}*/
@@ -36,3 +44,4 @@
 /*    transform: rotate(360deg);*/
 /*  }*/
 /*}*/
+

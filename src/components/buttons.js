@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 // pass the ordering state setter to this function as "OrderingCallback"
-export function ButtonForm(props) {
+export function OrderingButtons(props) {
     const initState = [
         {
             id: 0,
@@ -63,4 +63,4 @@ export function ButtonForm(props) {
 }
 
 
-export default ButtonForm
+export default OrderingButtons

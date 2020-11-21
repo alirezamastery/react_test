@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useFetch, loadProducts} from "../lookup/components";
+import Grid from '@material-ui/core/Grid';
+import Container from "@material-ui/core/Container";
 
 
 function Product(props) {
@@ -23,7 +25,7 @@ function ProductsList(props) {
     const [products, setProducts] = useState([])
     console.log(props.ordering)
 
-    const url = `products/?${props.ordering}`
+    const url = `/products/?${props.ordering}`
 
     //callback is needed to be in a function that we will call only when we need it so we won't go into infinite loop!?
     const callback = (response) => {
@@ -32,13 +34,22 @@ function ProductsList(props) {
 
     useFetch(url, callback)
 
-    return products.map((item, index) => {
-        return <div>
-            <Product product={item}
-                     className='container my-1 py-1 border text-dark col-3'
-                     key={`${index}-{item.id}`}/>
-        </div>
-    })
+    return (
+        <Grid container spacing={1} alignItems="flex-start">
+
+            {products.map((item, index) => {
+                return (
+                    <Grid item key={item.id} xs={4} md={4}>
+                            <Product product={item}
+                                     className='container my-1 py-1 border text-dark'
+                                     key={`${index}-{item.id}`}
+                            />
+                    </Grid>
+                )
+            })}
+
+        </Grid>
+    )
 }
 
 function ProductDetail() {
