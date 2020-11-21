@@ -2,19 +2,19 @@ import React, {useEffect, useState} from "react";
 import {useFetch, loadProducts} from "../lookup/components";
 import Grid from '@material-ui/core/Grid';
 import Container from "@material-ui/core/Container";
+import {Link} from 'react-router-dom'
 
 
 function Product(props) {
     const className = props.className ? props.className : 'container'
-    const productLink = `/products/${props.product.id}`
+    const productLink = `/products/${props.product.slug}`
     return (
         <div className={className}>
-            <a href={productLink}>
+            {/*you can also use <a> tag but I think it reloads the page*/}
+            <Link to={productLink}>
                 <img className="img-thumbnail img-fluid" src={props.product.image} alt={props.product.name}/>
-            </a>
-            <a href={productLink}>
                 <h3>{props.product.name}</h3>
-            </a>
+            </Link>
             <p> قیمت: {props.product.price}</p>
         </div>
     )
@@ -23,7 +23,8 @@ function Product(props) {
 
 function ProductsList(props) {
     const [products, setProducts] = useState([])
-    console.log(props.ordering)
+    console.log('in ProductsList: ', props.ordering)
+    console.log('in ProductsList: ', products)
 
     const url = `/products/?${props.ordering}`
 
@@ -37,13 +38,13 @@ function ProductsList(props) {
     return (
         <Grid container spacing={1} alignItems="flex-start">
 
-            {products.map((item, index) => {
+            {products.results.map((item, index) => {
                 return (
                     <Grid item key={item.id} xs={4} md={4}>
-                            <Product product={item}
-                                     className='container my-1 py-1 border text-dark'
-                                     key={`${index}-{item.id}`}
-                            />
+                        <Product product={item}
+                                 className='container my-1 py-1 border text-dark'
+                                 key={`${index}-{item.id}`}
+                        />
                     </Grid>
                 )
             })}

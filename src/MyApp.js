@@ -4,12 +4,11 @@ import {ProductsList} from './products/components'
 import OrderingButtons from "./components/buttons"
 
 function MyApp() {
-    const [ordering, setOrdering] = useState()
+    const [ordering, setOrdering] = useState("ordering=-created_date")
 
     const callback = (response) => {
         setOrdering(response)
     }
-
 
     return (
         <div className="container">

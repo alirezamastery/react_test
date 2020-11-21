@@ -35,17 +35,20 @@ export default function Product() {
         setData(response)
     }
 
-    const url = `http://127.0.0.1:8000/api/products/${slug}`
+    const url = `/products/${slug}`
     useFetch(url, callback)  //TODO create our own API calling function with error handling
 
 
     return (
         <Container component="main" maxWidth="md">
             <CssBaseline/>
-            <div className={classes.paper}></div>
             <div className={classes.heroContent}>
                 <Container maxWidth="sm">
                     <img src={data.image}/>
+                    {/*<CardMedia*/}
+                    {/*    // image={data.image}*/}
+                    {/*    src={data.image}*/}
+                    {/*/>*/}
                     <Typography
                         component="h1"
                         variant="h2"
