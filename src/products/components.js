@@ -4,7 +4,7 @@ import {useFetch, loadProducts} from "../lookup/components";
 
 function Product(props) {
     const className = props.className ? props.className : 'container'
-    const productLink = `http://127.0.0.1:8000/api/products/${props.product.id}`
+    const productLink = `/products/${props.product.id}`
     return (
         <div className={className}>
             <a href={productLink}>
@@ -23,9 +23,9 @@ function ProductsList(props) {
     const [products, setProducts] = useState([])
     console.log(props.ordering)
 
-    const url = `http://127.0.0.1:8000/api/products/?${props.ordering}`
+    const url = `products/?${props.ordering}`
 
-    //callback is needed to be in a function that we will call when we need it so we won't go into infinite loop!?
+    //callback is needed to be in a function that we will call only when we need it so we won't go into infinite loop!?
     const callback = (response) => {
         setProducts(response)
     }

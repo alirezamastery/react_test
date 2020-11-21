@@ -30,7 +30,7 @@ function Header() {
     const goSearch = (e) => {
         console.log('data.search' , data.search)
         history.push({
-            pathname: 'products/',
+            pathname: '/olagh/search/',
             search: '?search=' + data.search,
         });
         window.location.reload();

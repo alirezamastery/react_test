@@ -32,7 +32,7 @@ export function ButtonForm(props) {
             text: "ارزان ترین"
         }
     ]
-    const [buttonsState, setbuttonsState] = useState(initState)
+    const [buttonsState, setButtonsState] = useState(initState)
 
     const handleClick = (button) => {
         const x = parseInt(button.target.id)
@@ -50,7 +50,7 @@ export function ButtonForm(props) {
         }
         console.log('items: ', buttonsStateCopy)
         console.log('buttonsState: ', buttonsState)
-        setbuttonsState(buttonsStateCopy)
+        setButtonsState(buttonsStateCopy)
         props.OrderingCallback(buttonsState[x].ordering)
     }
 

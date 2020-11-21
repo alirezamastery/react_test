@@ -24,16 +24,13 @@ function loadProducts(callback) {
 }
 
 
-const useFetch = (url , callback) => {
-    // const [state, setState] = useState({data: null, loading: true});
-
+const useFetch = (endpoint , callback) => {
+    const url = `http://127.0.0.1:8000/api${endpoint}`
     useEffect(() => {
-        // setState(state => ({data: state.date, loading: true}));
 
         fetch(url)
             .then(x => x.json())
             .then(y => {
-                // setState({data: y, loading: false})
                 console.log('in useFetch: ' , y)
                 callback(y)
             })

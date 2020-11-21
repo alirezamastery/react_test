@@ -12,6 +12,7 @@ import Login from './components/login';
 import Logout from './components/logout';
 import Product from "./components/single";
 import Search from "./components/search";
+import MyApp from "./MyApp";
 
 const routing = (
     <Router>
@@ -19,11 +20,12 @@ const routing = (
             <Header/>
             <Switch>
 				<Route exact path="/" component={App} />
-				<Route path="/register" component={Register} />
-				<Route path="/login" component={Login} />
-				<Route path="/logout" component={Logout} />
-				<Route path="/products/:slug" component={Product} />
-				<Route path="/products" component={Search} />
+				<Route exact path="/main" component={MyApp} />
+				<Route exact path="/register" component={Register} />
+				<Route exact path="/login" component={Login} />
+				<Route exact path="/logout" component={Logout} />
+				<Route exact path="/products/:slug" component={Product} />
+				<Route exact path="/olagh/search/" component={Search} />
             </Switch>
             <Footer/>
         </React.StrictMode>

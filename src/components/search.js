@@ -21,9 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
     cardHeader: {
         backgroundColor:
-            theme.palette.type === 'light'
-                ? theme.palette.grey[200]
-                : theme.palette.grey[700],
+            theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
     },
     postTitle: {
         fontSize: '16px',
@@ -41,25 +39,26 @@ const useStyles = makeStyles((theme) => ({
 
 const Search = () => {
     const classes = useStyles();
-    const search = 'products';
-    const [appState, setAppState] = useState({
+    // const search = 'products';
+    const [searchResult, setSearchResult] = useState({
         search: '',
         posts: [],
     });
-
+    console.log('in Search: ', window.location.search)
+    console.log('in Search: ', window.location.pathname)
     useEffect(() => {
-        console.log('in Search: ',window.location.search )
-        axiosInstance.get(search + '/' + window.location.search).then((res) => {
+        console.log('in Search | useEffect : ', window.location.search)
+        axiosInstance.get("products/" + window.location.search).then((res) => {
             const allPosts = res.data;
-            setAppState({posts: allPosts});
+            setSearchResult({posts: allPosts});
         });
-    }, [setAppState]);
+    }, [setSearchResult]);
 
     return (
         <React.Fragment>
             <Container maxWidth="md" component="main">
                 <Grid container spacing={5} alignItems="flex-end">
-                    {appState.posts.map((post) => {
+                    {searchResult.posts.map((post) => {
                         return (
                             // Enterprise card is full width at sm breakpoint
                             <Grid item key={post.id} xs={12} md={4}>
