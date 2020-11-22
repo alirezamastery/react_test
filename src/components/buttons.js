@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
-// pass the ordering state setter to this function as "OrderingCallback"
-export function OrderingButtons({OrderingCallback}) {
+// pass the ordering state setter to this function as "onSelectOrderBy"
+export function OrderingButtons({onSelectOrderBy}) {
     const initState = [
         {
             id: 0,
@@ -48,7 +48,7 @@ export function OrderingButtons({OrderingCallback}) {
         }
         console.log('in OrderingButtons: ' , buttonsState[x].ordering)
         setButtonsState(buttonsStateCopy)
-        OrderingCallback(buttonsState[x].ordering)
+        onSelectOrderBy(buttonsState[x].ordering)
     }
 
     return buttonsState.map((item, index) => {

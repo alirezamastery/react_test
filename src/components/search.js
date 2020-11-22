@@ -47,9 +47,9 @@ const Search = () => {
     console.log('in Search: ', window.location.search)
     console.log('in Search: ', window.location.pathname)
     useEffect(() => {
-        console.log('in Search | useEffect : ', window.location.search)
+        console.log('in Search | useEffect window.location: ', window.location)
         axiosInstance.get("products/" + window.location.search).then((res) => {
-            const allPosts = res.data;
+            const allPosts = res.data.results;
             setSearchResult({posts: allPosts});
         });
     }, [setSearchResult]);

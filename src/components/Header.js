@@ -31,7 +31,7 @@ function Header() {
         console.log('data.search' , data.search)
         history.push({
             pathname: '/olagh/search/',
-            search: '?search=' + data.search,
+            search: '?search=' + data.search
         });
         window.location.reload();
     };

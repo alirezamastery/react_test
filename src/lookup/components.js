@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-function lookup(method, endpoint, callback, data) {
+function LookUp(method, endpoint, callback, data) {
     let jsonData;
     if (data) {
         jsonData = JSON.stringify(data)
@@ -20,23 +20,22 @@ function lookup(method, endpoint, callback, data) {
 }
 
 function loadProducts(callback) {
-    lookup("GET", "/products/", callback)
+    LookUp("GET", "/products/", callback)
 }
 
 
-const useFetch = (endpoint , callback) => {
+const useFetch = (method, endpoint, callback, data) => {
     const url = `http://127.0.0.1:8000/api${endpoint}`
     useEffect(() => {
-
         fetch(url)
-            .then(x => x.json())
-            .then(y => {
-                console.log('in useFetch: ' , y)
-                callback(y)
+            .then(response => response.json())
+            .then(data => {
+                console.log('in useFetch: ' , data)
+                callback(data)
             })
 
     }, [url]);
 
 }
 
-export {loadProducts, useFetch}
+export {LookUp, useFetch}

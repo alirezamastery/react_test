@@ -13,13 +13,13 @@ import Logout from './components/logout';
 import Product from "./components/single";
 import Search from "./components/search";
 import MyApp from "./MyApp";
-
+import ProductsMainView from './products/ProductsMainView'
 const routing = (
     <Router>
         <React.StrictMode>
             <Header/>
             <Switch>
-				<Route exact path="/" component={MyApp} />
+				<Route exact path="/" component={ProductsMainView} />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/logout" component={Logout} />
