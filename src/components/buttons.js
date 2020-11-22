@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 // pass the ordering state setter to this function as "OrderingCallback"
-export function OrderingButtons(props) {
+export function OrderingButtons({OrderingCallback}) {
     const initState = [
         {
             id: 0,
@@ -36,22 +36,19 @@ export function OrderingButtons(props) {
 
     const handleClick = (button) => {
         const x = parseInt(button.target.id)
-        console.log(x)
         let buttonsStateCopy = [...buttonsState]
+        // Change the className of the button we have selected to blue. set other buttons to not selected state:
         let i = 0
         for (i; i < buttonsState.length; i++) {
-            console.log('i: ', i)
             if (i === x) {
-                console.log('here')
                 buttonsStateCopy[i].classname = "btn btn-primary m-2 shadow-none"
             } else {
                 buttonsStateCopy[i].classname = "btn btn-outline-primary m-2 shadow-none"
             }
         }
-        console.log('items: ', buttonsStateCopy)
-        console.log('buttonsState: ', buttonsState)
+        console.log('in OrderingButtons: ' , buttonsState[x].ordering)
         setButtonsState(buttonsStateCopy)
-        props.OrderingCallback(buttonsState[x].ordering)
+        OrderingCallback(buttonsState[x].ordering)
     }
 
     return buttonsState.map((item, index) => {
@@ -61,6 +58,5 @@ export function OrderingButtons(props) {
                        key={`${index}`}>{item.text}</button>
     })
 }
-
 
 export default OrderingButtons
