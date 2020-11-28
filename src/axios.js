@@ -26,7 +26,8 @@ axiosInstance.interceptors.response.use(
 	},
 	async function (error) {
 		const originalRequest = error.config;
-		console.log("in axiosInstance | error: ", error)
+		console.log("in axiosInstance | BEGINING OF ERROR SECTION | error: ", error)
+
 		if (typeof error.response === 'undefined') {
 			alert(
 				'A server/network error occurred. ' +
@@ -60,7 +61,7 @@ axiosInstance.interceptors.response.use(
 			const refreshToken = localStorage.getItem('refresh_token');
 
 			if (refreshToken) {
-				console.log('response.status was 404 so we will use refreshToken: ', refreshToken)
+				console.log(`response.status was ${error.response.status} so we will use refreshToken: `, refreshToken)
 				const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
 				// console.log("tokenParts: ", tokenParts)
 

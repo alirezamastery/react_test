@@ -41,9 +41,9 @@ export function OrderingButtons({onSelectOrderBy}) {
         let i = 0
         for (i; i < buttonsState.length; i++) {
             if (i === x) {
-                buttonsStateCopy[i].classname = "btn btn-primary m-2 shadow-none"
+                buttonsStateCopy[i].classname = "btn btn-primary btn-sm m-2 shadow-none"
             } else {
-                buttonsStateCopy[i].classname = "btn btn-outline-primary m-2 shadow-none"
+                buttonsStateCopy[i].classname = "btn btn-outline-primary btn-sm m-2 shadow-none"
             }
         }
         // console.log('in OrderingButtons: ' , buttonsState[x].ordering)

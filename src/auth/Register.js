@@ -74,7 +74,7 @@ const RegisterForm = () => {
 	};
 
 	return (
-		<>
+		<div className="col-sm-12 col-md-9 col-lg-6 col-xl-4 mx-auto">
 			<div className="container border mt-5 p-5">
 				<h3 className="mb-5">ایجاد حساب کاربری</h3>
 
@@ -165,7 +165,7 @@ const RegisterForm = () => {
 								) : null}
 							</div>
 
-							<button type="submit" className="btn btn-success p-3">ایجاد حساب</button>
+							<button type="submit" className="btn btn-success rounded-0 p-3">ایجاد حساب</button>
 						</form>
 					)}
 				</Formik>
@@ -176,7 +176,7 @@ const RegisterForm = () => {
 					</Link>
 				</p>
 			</div>
-		</>
+		</div>
 	);
 };
 

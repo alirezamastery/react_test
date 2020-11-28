@@ -73,14 +73,14 @@ export default function Pagination({ totalPages, OnPageSelect }) {
 
     return (
         <nav>
-            <ul className="pagination">
+            <ul className="pagination mt-2">
                 {paginationObjects.map(item => (
                     <li key={item.number} className="page-item" >
                         <button
                             type="button"
                             id={item.number}
                             onClick={handlePaginationClick}
-                            className={item.selected ? "btn btn-info shadow-none m-2" : "btn btn-light m-2"}>
+                            className={item.selected ? "btn btn-info rounded-0 shadow-none m-2" : "btn btn-outline-info rounded-0 m-2"}>
                             {item.text}
                         </button>
                     </li>

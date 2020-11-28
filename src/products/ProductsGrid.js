@@ -12,13 +12,13 @@ function ProductGrid({ isLoading, products }) {
         )
     }
     return (
-        <Grid container spacing={1} alignItems="flex-start">
+        <Grid container spacing={0} alignItems="flex-start">
             {products.map((item) => {
                 return (
-                    <Grid item key={item.id} xs={4} md={4}>
+                    <Grid item key={item.id} xs={12} md={6} lg={4}>
                         <ProductThumbnail
                             product={item}
-                            className='container my-1 py-1 border text-dark'
+                            className='text-center py-1 border text-dark'
                             key={item.id}
                         />
                     </Grid>

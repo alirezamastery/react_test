@@ -25,11 +25,11 @@ function ProductDetail(props) {
         return (
             <div className="container border mt-2 text-right">
                 <div className="row">
-                    <div className="col-sm-6 col-md-6 col-xs-12 image-container border">
+                    <div className="col-sm-6 col-md-6 col-lg-5 image-container border-left text-center p-2">
                         <img src={`http://127.0.0.1:8000${data.image}`}
                             alt={`image of ${data.name}`} />
                     </div>
-                    <div className="col-sm-6 col-md-6 col-xs-12">
+                    <div className="col-sm-6 col-md-6 col-lg-7 p-4">
                         <h2>{data.name}</h2>
                         <h3>قیمت : {data.price}</h3>
                     </div>

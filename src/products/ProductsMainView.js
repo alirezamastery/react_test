@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import ProductGrid from './ProductsGrid'
 import Pagination from './Pagination'
 import Filter from './search/Filter'
-import OrderingButtons from '../components/buttons'
+import OrderingButtons from './search/components/ordering'
 import axiosInstance from '../axios';
 
 
@@ -86,12 +86,12 @@ function ProductsMainView() {
     let totalPages = data.total_pages ? data.total_pages : 0
 
     return (
-        <div className="container justify-content-center mt-5">
+        <div className="container justify-content-center mt-5 shadow">
             <div className="row">
-                <div className="col-sm-3 col-md-3 col-xs-6">
+                <div className="col-sm-12 col-md-12 col-lg-3 col-xl-3 border p-3">
                     <Filter onSelectFilter={handleFilterChange} />
                 </div>
-                <div className="col-sm-9 col-md-9 col-xs-6">
+                <div className="col-sm-12 col-md-12 col-lg-9 col-xl-9 border p-1">
                     <OrderingButtons onSelectOrderBy={handleOrderingChange} />
                     <ProductGrid isLoading={isLoading} products={products} />
                     <Pagination totalPages={totalPages} OnPageSelect={handlePaginationChange} />
