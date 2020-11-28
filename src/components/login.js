@@ -66,7 +66,7 @@ export default function Login() {
 					'JWT ' + localStorage.getItem('access_token');
 				history.push('/');
 				console.log(res);
-				//console.log(res.data);
+				console.log(res.data);
 			});
 	};
 

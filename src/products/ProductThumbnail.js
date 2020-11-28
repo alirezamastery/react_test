@@ -10,9 +10,9 @@ function ProductThumbnail({ product , className}) {
             {/*you can also use <a> tag but I think it reloads the page*/}
             <Link to={productLink}>
                 <img className="img-thumbnail img-fluid" src={product.image} alt={product.name} />
-                <h3>{product.name}</h3>
+                <h5 className="mt-2">{product.name}</h5>
             </Link>
-            <p> قیمت: {product.price}</p>
+            <h5> قیمت: {product.price}</h5>
         </div>
     )
 }

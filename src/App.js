@@ -1,29 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import Posts from './components/Posts';
-import PostLoadingComponent from './components/PostLoading';
+import React, { useState } from 'react';
+import './index.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-function App() {
-	const PostLoading = PostLoadingComponent(Posts);
-	const [appState, setAppState] = useState({
-		loading: false,
-		posts: null,
-	});
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ProductsMainView from './products/ProductsMainView'
+import Logout from './auth/Logout';
+import Search from "./components/search";
+import ProductDetail from './products/ProductDetail'
+import RegisterForm from './auth/Register'
+import LoginForm from './auth/LoginForm'
+import LoginFormTEST from './auth/LoginFormTEST'
+import { AuthProvider } from './Context';
 
-	useEffect(() => {
-		setAppState({ loading: true });
-		const apiUrl = `http://127.0.0.1:8000/api/products/`;
-		fetch(apiUrl)
-			.then((data) => data.json())
-			.then((posts) => {
-				setAppState({ loading: false, posts: posts });
-			});
-	}, [setAppState]);
+export default function App() {
+
 	return (
-		<div className="App">
-			<h1>آخرین محصولات</h1>
-			<PostLoading isLoading={appState.loading} posts={appState.posts} />
-		</div>
+		<AuthProvider>
+			<Router>
+				<React.StrictMode>
+					<Header />
+					<Switch>
+						<Route exact path="/" component={ProductsMainView} />
+						<Route exact path="/login" component={LoginFormTEST} />
+						<Route exact path="/logout" component={Logout} />
+						<Route exact path="/register" component={RegisterForm} />
+						<Route exact path="/products/:slug" component={ProductDetail} />
+						<Route exact path="/olagh/search/" component={Search} />
+					</Switch>
+					<Footer />
+				</React.StrictMode>
+			</Router>
+		</AuthProvider>
 	);
 }
-export default App;

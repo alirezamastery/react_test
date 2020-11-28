@@ -46,7 +46,7 @@ export function OrderingButtons({onSelectOrderBy}) {
                 buttonsStateCopy[i].classname = "btn btn-outline-primary m-2 shadow-none"
             }
         }
-        console.log('in OrderingButtons: ' , buttonsState[x].ordering)
+        // console.log('in OrderingButtons: ' , buttonsState[x].ordering)
         setButtonsState(buttonsStateCopy)
         onSelectOrderBy(buttonsState[x].ordering)
     }
