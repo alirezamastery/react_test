@@ -35,7 +35,7 @@ export default function UserStatus() {
                 <p className="m-auto" style={{color:"#ffffff"}}>{` ${username} خوش امدید `}</p>
                 <nav>
                     <Link to="/user/profile" >
-                        <button className="btn btn-success rounded-0 shadow-none ml-1 mr-1" 
+                        <button className="btn btn-secondary rounded-0 shadow-none ml-1 mr-1" 
                         onMouseUp={(e) => e.target.blur()}
                         >حساب کاربری</button>
                     </Link>
