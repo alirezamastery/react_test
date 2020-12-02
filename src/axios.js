@@ -26,7 +26,7 @@ axiosInstance.interceptors.response.use(
 	},
 	async function (error) {
 		const originalRequest = error.config;
-		console.log("in axiosInstance | BEGINING OF ERROR SECTION | error: ", error)
+		// console.log("in axiosInstance | BEGINING OF ERROR SECTION | error: ", error)
 
 		if (typeof error.response === 'undefined') {
 			alert(

@@ -14,6 +14,7 @@ import ProductDetail from './products/ProductDetail'
 import RegisterForm from './auth/Register'
 import LoginForm from './auth/LoginForm'
 import Profile from './profile/Profile';
+import Cart from './cart/Cart';
 
 export default function App() {
 
@@ -31,6 +32,7 @@ export default function App() {
 						<Route exact path="/user/profile" component={Profile} />
 						<Route exact path="/products/:slug" component={ProductDetail} />
 						<Route exact path="/olagh/search/" component={Search} />
+						<Route exact path="/user/cart" component={Cart} />
 					</Switch>
 					<Footer />
 				</React.StrictMode>

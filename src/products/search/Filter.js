@@ -16,7 +16,7 @@ function Filter({ onSelectFilter }) {
                     type="text" value={keywordSearch} onChange={handleKeywordSearchChange} />
             </label>
 
-            <button type="submit" className="btn btn-info btn-block btn-sm rounded-0" onClick={handleFilterChange} >اعمال فیلتر</button>
+            <button type="submit" className="btn btn-info btn-block btn-sm rounded-0 shadow" onClick={handleFilterChange} >اعمال فیلتر</button>
         </div>
     )
 }

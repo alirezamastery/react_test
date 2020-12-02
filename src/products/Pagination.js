@@ -20,7 +20,7 @@ export default function Pagination({ totalPages, OnPageSelect }) {
             const obj = {
                 number: i,
                 text: `${i}`,
-                link:  `&page=${i}`,
+                link: `&page=${i}`,
                 selected: false
             }
             paginationObjects.unshift(obj)

@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom'
 
-import UserStatus from './UserStatus';
-import { useAuthState } from '../Context';
-
+import { useSelector, useDispatch } from 'react-redux'
+import { cartActions } from '../reducers/actions'
 
 
 function HeaderLower() {
+    const cart = useSelector(state => state.cart)
+    console.log('in header lowe | cart:', cart)
+
+    const dispatch = useDispatch()
+    const itemsNum = Object.keys(cart.cartData).length
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light  justify-content-between border-top border-light" style={{backgroundColor:"#e6e6e6"}}>
+        <nav className="navbar navbar-expand-lg navbar-light  justify-content-between border-top border-light shadow" style={{ backgroundColor: "#e6e6e6" }}>
             <div className="container">
 
                 <button className="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarLower" aria-controls="navbarLower" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +42,10 @@ function HeaderLower() {
                         </li>
                     </ul>
                 </div>
+                <Link to="/user/cart">
+                    <button className="btn btn-link">سبد خرید({itemsNum})</button>
+                </Link>
+                <button className="btn btn-warning" onClick={() => dispatch({ type: cartActions.CLEAR_CART })}>حذف سبد</button>
 
             </div>
         </nav>
