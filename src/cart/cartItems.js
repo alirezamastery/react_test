@@ -7,13 +7,6 @@ function Items() {
     const cart = useSelector(state => state.cart)
     const dispatch = useDispatch()
 
-    const handleDeleteItem = (e) => {
-        const buttonId = parseInt(e.target.id)
-        const obj = {}
-        obj[buttonId] = { ...cart.cartData[buttonId] }
-        dispatch({ type: cartActions.REMOVE_ITEM, payload: obj })
-    }
-
     const handleItemIncrement = (e) => {
         let fieldValue = parseInt(document.getElementById(e.target.id + "Quantity").value);
         fieldValue += 1
@@ -31,6 +24,14 @@ function Items() {
         obj[buttonId] = { ...cart.cartData[buttonId], quantity: fieldValue }
         dispatch({ type: cartActions.EDIT_ITEM, payload: obj })
     }
+
+    const handleItemDelete = (e) => {
+        const buttonId = parseInt(e.target.id)
+        const obj = {}
+        obj[buttonId] = { ...cart.cartData[buttonId] }
+        dispatch({ type: cartActions.REMOVE_ITEM, payload: obj })
+    }
+
     return (
         <div className="container p-2 border shadow mt-5">
             {Object.keys(cart.cartData).map((item, index) => {
@@ -62,7 +63,7 @@ function Items() {
                                         <button id={item} className="btn btn-light mr-4" onClick={handleItemChange}>بروزرسانی</button>
                                     </div>
                                     <div>
-                                        <button id={item} className="btn btn-light" onClick={handleDeleteItem}>حذف</button>
+                                        <button id={item} className="btn btn-light" onClick={handleItemDelete}>حذف</button>
                                     </div>
                                 </div>
                             </div>

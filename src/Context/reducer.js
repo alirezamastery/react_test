@@ -6,6 +6,7 @@ let user = localStorage.getItem('user_id')
 
 export const initialState = {
 	userID: '' || user,
+	isLoggedIn : false,
 	loading: false,
 	errorMessage: null,
 };
@@ -21,12 +22,14 @@ export const AuthReducer = (initialState, action) => {
 			return {
 				...initialState,
 				userID: action.payload.user_id,
+				isLoggedIn: true,
 				loading: false,
 			};
 		case 'LOGOUT':
 			return {
 				...initialState,
 				userID: '',
+				isLoggedIn: false,
 			};
 
 		case 'LOGIN_ERROR':

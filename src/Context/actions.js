@@ -40,6 +40,11 @@ export async function loginUser(dispatch, loginPayload) {
 }
 
 export async function logout(dispatch) {
+    const refreshToken =  localStorage.getItem('refresh_token')
+    console.log("in logout | refreshToken: ", refreshToken)
+    const response = axiosInstance.post('user/logout/blacklist/', {
+        refresh_token: refreshToken,
+    });
     dispatch({ type: 'LOGOUT' });
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');

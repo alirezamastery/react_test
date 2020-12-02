@@ -15,6 +15,8 @@ import RegisterForm from './auth/Register'
 import LoginForm from './auth/LoginForm'
 import Profile from './profile/Profile';
 import Cart from './cart/Cart';
+import routes from './config/routes'
+import AppRoutes from './components/AppRoutes'
 
 export default function App() {
 
@@ -23,16 +25,17 @@ export default function App() {
 			<Router>
 				<React.StrictMode>
 					<Header />
-					<HeaderLower/>
+					<HeaderLower />
 					<Switch>
-						<Route exact path="/" component={ProductsMainView} />
-						<Route exact path="/login" component={LoginForm} />
-						<Route exact path="/logout" component={Logout} />
-						<Route exact path="/register" component={RegisterForm} />
-						<Route exact path="/user/profile" component={Profile} />
-						<Route exact path="/products/:slug" component={ProductDetail} />
-						<Route exact path="/olagh/search/" component={Search} />
-						<Route exact path="/user/cart" component={Cart} />
+						{routes.map((route) => (
+							<AppRoutes
+								exact
+								key={route.path}
+								path={route.path}
+								component={route.component}
+								isPrivate={route.isPrivate}
+							/>
+						))}
 					</Switch>
 					<Footer />
 				</React.StrictMode>
@@ -40,3 +43,13 @@ export default function App() {
 		</AuthProvider>
 	);
 }
+
+
+{/* <Route exact path="/" component={ProductsMainView} />
+<Route exact path="/login" component={LoginForm} />
+<Route exact path="/logout" component={Logout} />
+<Route exact path="/register" component={RegisterForm} />
+<Route exact path="/user/profile" component={Profile} />
+<Route exact path="/products/:slug" component={ProductDetail} />
+<Route exact path="/olagh/search/" component={Search} />
+<Route exact path="/user/cart" component={Cart} /> */}

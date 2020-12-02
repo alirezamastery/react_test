@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { cartActions } from '../reducers/actions'
 
 function ProductDetail(props) {
+    console.log("in ProductDetail")
     const cart = useSelector(state => state.cart)
     const dispatch = useDispatch()
 

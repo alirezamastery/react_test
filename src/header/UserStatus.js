@@ -10,13 +10,14 @@ export default function UserStatus() {
     const userDetails = useAuthState();
     const dispatch = useAuthDispatch();
     const [username, setUsername] = useState('');
+    console.log("in UserStatus | userDetails: " , userDetails)
     // --------------------------------future update-------------------------------- refresh token expiration time check
     let has_token = false
     const refreshToken = localStorage.getItem('refresh_token');
     if (refreshToken) {
         const now = Math.ceil(Date.now() / 1000);
         const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
-        console.log("in UserStatus | refreshToken: ", tokenParts.exp - now)
+        // console.log("in UserStatus | refreshToken: ", tokenParts.exp - now)
         if (tokenParts.exp > now)
             has_token = true
         else
