@@ -1,9 +1,12 @@
-import cartReducer from './cartReducer'
-import warningReducer from "./warningReducer";
 import { combineReducers } from 'redux'
 import { withReduxStateSync } from 'redux-state-sync'
 
+import cartReducer from './cartReducer'
+import warningReducer from "./warningReducer";
+import authReducer from './authReducer';
+
 const allReducers = combineReducers({
+    auth: authReducer,
     cart: cartReducer,
     warning: warningReducer
 })

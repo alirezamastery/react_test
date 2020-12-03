@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import IsAuthenticated from '../auth/isAuthenticated';
+import IsAuthenticated from '../auth/IsAuthenticated';
 import axiosInstance from '../axios'
 import { useAuthDispatch, logout, useAuthState } from '../Context';
 

@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import { Formik, Field, useField } from 'formik';
 import { useHistory } from 'react-router-dom';
 import axiosInstance from '../axios';
-import { loginUser, useAuthState, useAuthDispatch } from '../Context';
-import {useSelector} from 'react-redux'
-import useSelection from 'antd/lib/table/hooks/useSelection';
+// import { loginUser, useAuthState, useAuthDispatch } from '../Context';
+import { useSelector, useDispatch } from 'react-redux'
+import { loginUser } from './AuthActions'
 
 const validate = values => {
 
@@ -28,13 +28,10 @@ const validate = values => {
 const LoginForm = () => {
 
     const history = useHistory();
-    const [failAlert, setFailAlert] = useState(false)
 
-    const dispatch = useAuthDispatch();
-    const { loading, errorMessage } = useAuthState(); //loading is used for buttons and inputs "disabled" tag
-
+    const auth = useSelector(state => state.auth)
     const warning = useSelector(state => state.warning)
-    console.log('in login | warning: ' , warning)
+    const dispatch = useDispatch()
 
 
     const handleSubmit = async (formData) => {
@@ -44,14 +41,10 @@ const LoginForm = () => {
             history.push('/');
         } catch (error) {
             console.log("in LoginFormTEST | handleSubmit | error is:", error.response)
-            console.log("in LoginFormTEST | handleSubmit | errorMessage is:", errorMessage)
-            // if (error.response.status === 401)
-            //     setFailAlert(true)
-            // else
-            //     alert("خطای غیر منتظره. لطفا مجددا تلاش کنید")
+            console.log("in LoginFormTEST | handleSubmit | auth.errorMessage is:", auth.errorMessage)
         }
     };
-    console.log("in LoginFormTEST | errorMessage is:", errorMessage)
+    // console.log("in LoginForm | auth.errorMessage is:", auth.errorMessage)
 
     return (
         <div className="col-sm-12 col-md-9 col-lg-6 col-xl-4 mx-auto">
@@ -59,7 +52,7 @@ const LoginForm = () => {
 
                 <h3 className="mb-5">ورود به حساب کاربری</h3>
 
-                {errorMessage ? (
+                {auth.errorMessage ? (
                     <div className="alert alert-danger" role="alert">
                         نام کاربری یا رمز عبور اشتباه است
                     </div>

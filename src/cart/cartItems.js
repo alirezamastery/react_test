@@ -54,7 +54,7 @@ function Items() {
                                 <p>قیمت: {cart.cartData[item].price}</p>
                                 <div className="d-flex justify-content-between">
                                     <div>
-                                        <h5 className="d-inline">تعداد: {cart.cartData[item].quantity}</h5>
+                                        <p className="d-inline">تعداد: </p>
                                         <button id={item} className="btn btn-outline-secondary btn-sm" onClick={handleItemIncrement}>+</button>
                                         <input id={`${item}Quantity`} className="form-group text-center" type="number"
                                             style={{ width: "50px" }}

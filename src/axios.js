@@ -63,7 +63,6 @@ axiosInstance.interceptors.response.use(
 			if (refreshToken) {
 				console.log(`response.status was ${error.response.status} so we will use refreshToken: `, refreshToken)
 				const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
-				// console.log("tokenParts: ", tokenParts)
 
 				const now = Date.now();
 				// exp date in token is expressed in seconds, while now() returns milliseconds:
@@ -71,8 +70,6 @@ axiosInstance.interceptors.response.use(
 					return axiosInstance
 						.post('/token/refresh/', { refresh: refreshToken })
 						.then((response) => {
-							// console.log('token refresh |  response.data.access: ', response.data.access);
-							// console.log('token refresh |  response.data.refresh: ', response.data.refresh);
 							localStorage.setItem('access_token', response.data.access);
 							localStorage.setItem('refresh_token', response.data.refresh);
 

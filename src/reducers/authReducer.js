@@ -9,36 +9,40 @@ export const initialState = {
     errorMessage: null,
 };
 
-export const authReducer = (initialState, action) => {
+export const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'REQUEST_LOGIN':
             return {
-                ...initialState,
+                ...state,
                 loading: true,
             };
         case 'LOGIN_SUCCESS':
             return {
-                ...initialState,
+                ...state,
                 userID: action.payload.user_id,
                 isLoggedIn: true,
                 loading: false,
+                errorMessage: ''
             };
         case 'LOGOUT':
             return {
-                ...initialState,
+                ...state,
                 userID: '',
                 isLoggedIn: false,
             };
 
         case 'LOGIN_ERROR':
-            console.log("in AuthReducer | LOGIN_ERROR |  action.error:", action.error)
+            console.log("in AuthReducer | LOGIN_ERROR | action.error:", action.error)
             return {
-                ...initialState,
+                ...state,
                 loading: false,
                 errorMessage: action.error,
             };
 
         default:
-            throw new Error(`Unhandled action type: ${action.type}`);
+            return state
     }
 };
+
+
+export default authReducer

@@ -7,17 +7,18 @@ import { useAuthState } from '../Context';
 
 
 function Header() {
+    // console.log("HEADER")
 
-    let history = useHistory();
-    const [data, setData] = useState({ search: '' });
-    const goSearch = (e) => {
-        console.log('data.search', data.search)
-        history.push({
-            pathname: '/olagh/search/',
-            search: '?search=' + data.search
-        });
-        window.location.reload();
-    };
+    // let history = useHistory();
+    // const [data, setData] = useState({ search: '' });
+    // const goSearch = (e) => {
+    //     console.log('data.search', data.search)
+    //     history.push({
+    //         pathname: '/olagh/search/',
+    //         search: '?search=' + data.search
+    //     });
+    //     window.location.reload();
+    // };
 
 
 
