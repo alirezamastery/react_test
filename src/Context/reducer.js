@@ -1,12 +1,10 @@
-import React, { useState, useReducer } from 'react';
-
 let user = localStorage.getItem('user_id')
 	? localStorage.getItem('user_id')
 	: '';
 
 export const initialState = {
 	userID: '' || user,
-	isLoggedIn : false,
+	isLoggedIn: false,
 	loading: false,
 	errorMessage: null,
 };
@@ -33,7 +31,7 @@ export const AuthReducer = (initialState, action) => {
 			};
 
 		case 'LOGIN_ERROR':
-            console.log("in AuthReducer | LOGIN_ERROR |  action.error:" , action.error)
+			console.log("in AuthReducer | LOGIN_ERROR |  action.error:", action.error)
 			return {
 				...initialState,
 				loading: false,

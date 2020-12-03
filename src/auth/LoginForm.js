@@ -3,6 +3,8 @@ import { Formik, Field, useField } from 'formik';
 import { useHistory } from 'react-router-dom';
 import axiosInstance from '../axios';
 import { loginUser, useAuthState, useAuthDispatch } from '../Context';
+import {useSelector} from 'react-redux'
+import useSelection from 'antd/lib/table/hooks/useSelection';
 
 const validate = values => {
 
@@ -30,6 +32,9 @@ const LoginForm = () => {
 
     const dispatch = useAuthDispatch();
     const { loading, errorMessage } = useAuthState(); //loading is used for buttons and inputs "disabled" tag
+
+    const warning = useSelector(state => state.warning)
+    console.log('in login | warning: ' , warning)
 
 
     const handleSubmit = async (formData) => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { cartActions } from '../reducers/actions'
+import { cartActions } from '../reducers/actionTypes'
 import Payment from './payment'
 import Items from './cartItems'
 import { logout } from '../Context'

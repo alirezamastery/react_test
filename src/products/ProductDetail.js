@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axiosInstance from '../axios';
 import { useSelector, useDispatch } from 'react-redux'
-import { cartActions } from '../reducers/actions'
+import { cartActions } from '../reducers/actionTypes'
 
-function ProductDetail(props) {
-    console.log("in ProductDetail")
+function ProductDetail() {
     const cart = useSelector(state => state.cart)
     const dispatch = useDispatch()
 
@@ -27,7 +26,7 @@ function ProductDetail(props) {
 
     const handleAddToCart = () => {
         const quantity = parseInt(document.getElementById("orderQuantity").value)
-        console.log("quantity: " , typeof quantity)
+        console.log("quantity: ", typeof quantity)
         // add the product with its quantity to global store (redux)
         const productObj = {
             id: data.id,

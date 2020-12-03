@@ -6,3 +6,10 @@ export const cartActions = {
     'REMOVE_ITEM': 'REMOVE_ITEM',
     'CLEAR_CART': 'CLEAR_CART',
 }
+
+export const authActions = {
+    'REQUEST_LOGIN': 'REQUEST_LOGIN',
+    'LOGIN_SUCCESS': 'LOGIN_SUCCESS',
+    'LOGOUT': 'LOGOUT',
+    'LOGIN_ERROR': 'LOGIN_ERROR',
+}
