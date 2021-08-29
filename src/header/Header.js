@@ -27,12 +27,12 @@ function Header() {
             <div className="container">
 
                 <Link className="navbar-brand" to="/">
-                    <img src="http://127.0.0.1:8000/media/Crown.png"
+                    <img src="https://emsc.ir/media/Crown.png"
                         className="float-right" width="50" height="40" alt="" />
                 </Link>
 
                 <form className="form-inline">
-                    <input className="form-control mr-sm-2" type="search" placeholder="جست و جو..." aria-label="Search" />
+                    <input className="form-control mr-sm-2" style={{ width: '12em' }} type="search" placeholder="جست و جو..." aria-label="Search" />
                 </form>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

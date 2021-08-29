@@ -4,10 +4,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../auth/AuthActions'
 
 
-export function useIsAuthenticated(user_id) {
+export function useIsAuthenticated() {
 
     // const auth = useSelector(state => state.auth)
     const dispatch = useDispatch()
+    const auth = useSelector(state => state.auth)
+    const user_id = auth.userID
+
     const [authenticated, setAuthenticated] = useState(false)
     const [username, setUsername] = useState('');
     const [loading, setLoading] = useState(false);
@@ -15,7 +18,7 @@ export function useIsAuthenticated(user_id) {
 
     useEffect(() => {
         let didCancel = false;
-        console.log("in IsAuthenticated | useEffect | ")
+        // console.log("in IsAuthenticated | useEffect | ")
 
         const fetchData = async () => {
             setLoading(true)
@@ -29,6 +32,7 @@ export function useIsAuthenticated(user_id) {
                 if (!didCancel) {
                     setAuthenticated(false)
                     setUsername('')
+                    logout(dispatch)
                     if (error.message === 'refresh_token_expired') {
                         console.log("in IsAuthenticated | we got the error")
                     } else {
@@ -51,7 +55,7 @@ export function useIsAuthenticated(user_id) {
         }
     }, [user_id])
 
-    console.log("in IsAuthenticated | authenticated: ", authenticated)
+    // console.log("in IsAuthenticated | authenticated: ", authenticated)
 
     // ---
     return [authenticated, username, loading]

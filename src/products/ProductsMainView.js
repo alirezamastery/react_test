@@ -43,14 +43,14 @@ function ProductsMainView() {
             search = search + "&search=" + filterBy
         }
 
-        if (search !== '') {
-            history.push({
-                pathname: '/',
-                search: '?' + search
-            });
-            setSearchData('?' + search)
-            setPageNum('')
-        }
+        // if (search !== '') {
+        history.push({
+            pathname: '/',
+            search: '?' + search
+        });
+        setSearchData('?' + search)
+        setPageNum('')
+        // }
 
     }, [orderBy, filterBy])
 
@@ -62,8 +62,7 @@ function ProductsMainView() {
 
             if (currentPageString) {
                 search = search.replace(currentPageString[0], `page=${pageNum}`)
-            }
-            else {
+            } else {
                 search = search + "&page=" + pageNum
             }
 
@@ -78,7 +77,7 @@ function ProductsMainView() {
 
     // console.log('ProductsMainView second')
 
-    const handleOrderingChange = (OrderingChoice) => setOrderBy(OrderingChoice)  //this single line is a function definition!
+    const handleOrderingChange = (OrderingChoice) => setOrderBy(OrderingChoice) //this single line is a function definition!
     const handleFilterChange = (newData) => setFilterBy(newData)
     const handlePaginationChange = (newData) => setPageNum(newData)
 
@@ -86,12 +85,11 @@ function ProductsMainView() {
     let totalPages = data.total_pages ? data.total_pages : 0
 
     return (
-        <div className="container justify-content-center mt-5 shadow">
-            <div className="row">
-                <div className="col-sm-12 col-md-12 col-lg-3 col-xl-3 border p-3">
-                    <Filter onSelectFilter={handleFilterChange} />
-                </div>
-                <div className="col-sm-12 col-md-12 col-lg-9 col-xl-9 border p-1">
+        <div className="container justify-content-center mt-5 shadow" >
+            <div className="row" >
+                <div className="col-sm-12 col-md-12 col-lg-3 col-xl-3 border p-3" >
+                    <Filter onSelectFilter={handleFilterChange} /> </div>
+                < div className="col-sm-12 col-md-12 col-lg-9 col-xl-9 border p-1" >
                     <OrderingButtons onSelectOrderBy={handleOrderingChange} />
                     <ProductGrid isLoading={isLoading} products={products} />
                     <Pagination totalPages={totalPages} OnPageSelect={handlePaginationChange} />

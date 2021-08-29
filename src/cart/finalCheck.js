@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import IsAuthenticated from '../auth/IsAuthenticated';
+import useIsAuthenticated from '../auth/IsAuthenticated';
 import axiosInstance from '../axios'
-import { useAuthDispatch, logout, useAuthState } from '../Context';
 
 
 
 export default function FinalCheck() {
     const history = useHistory();
-    const token = IsAuthenticated()
-    console.log("in FinalCheck : ", token)
-    if (!token)
-        history.push('/login')
-    else
-        return (
-            <div>
-                <h1>now we're talking</h1>
+    const [athenticated, username, loading] = useIsAuthenticated()
+    console.log("in FinalCheck: ", athenticated, username, loading)
+
+    // if (!athenticated)    // ---> this part should be fixed
+    //     history.push('/login')
+
+    return (
+        <div className="container border mt-5 shadow text-center" style={{ height: "500px" }}>
+            <div className="p-6">
+                {loading ? <h1>در حال پردازش</h1>
+                    : <h1>now we're talking</h1>}
             </div>
-        )
+        </div>
+    )
 }
 

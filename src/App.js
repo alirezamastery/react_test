@@ -7,14 +7,7 @@ import { AuthProvider } from './Context';
 import Header from "./header/Header";
 import HeaderLower from './header/HeaderLower'
 import Footer from "./components/Footer";
-import ProductsMainView from './products/ProductsMainView'
-import Logout from './auth/Logout';
-import Search from "./components/search";
-import ProductDetail from './products/ProductDetail'
-import RegisterForm from './auth/Register'
-import LoginForm from './auth/LoginForm'
-import Profile from './profile/Profile';
-import Cart from './cart/Cart';
+
 import routes from './config/routes'
 import AppRoutes from './components/AppRoutes'
 

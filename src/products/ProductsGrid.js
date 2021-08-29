@@ -1,13 +1,18 @@
 import React from 'react'
 import ProductThumbnail from './ProductThumbnail'
 import Grid from '@material-ui/core/Grid';
-
+import GifLoader from 'react-gif-loader';
 
 function ProductGrid({ isLoading, products }) {
     if (isLoading) { //700px height is for scroll bar to always show so we don't have flicker on changing the ordering
         return (
             <div style={{ height: "700px" }}>
-                "Loading..."
+                <GifLoader
+                    loading={true}
+                    imageSrc="../giphy.gif"
+                    // imageStyle={imageStyle}
+                    overlayBackground="rgba(0,0,0,0.5)"
+                />
             </div>
         )
     }

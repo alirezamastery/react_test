@@ -21,44 +21,38 @@ const useStyles = makeStyles((theme) => ({
 
 function Copyright() {
 	return (
-		<Typography variant="body2" color="textSecondary" align="center">
-			{'Copyright © '}
-			<Link color="inherit" href="https://material-ui.com/">
-				Test Online Shopping Site
+		<>
+			<Typography variant="body2" color="textSecondary" align="center">
+				{'Copyright © '}
+				<Link color="inherit" href="https://material-ui.com/">
+					این سایت صرفا جهت نمونه کار می باشد
 			</Link>{' '}
-			{new Date().getFullYear()}
-			{'.'}
-		</Typography>
+				{new Date().getFullYear()}
+				{'.'}
+			</Typography>
+			<p className="text-center">طراح : علیرضا فراهانی</p>
+		</>
 	);
 }
 
 const footers = [
 	{
-		title: 'Company',
-		description: ['Team', 'History', 'Contact us', 'Locations'],
+		title: 'راهنمایی',
+		description: ['یک', 'دو', 'سه', 'چهار'],
 	},
+
 	{
-		title: 'Features',
+		title: 'خدمات',
 		description: [
-			'یه سری لینک',
-			'اینجام یه چیزی هست',
-			'Team feature',
-			'Developer stuff',
-			'Another one',
+			'خدمت1',
+			'خدمت2',
+			'خدمت3',
+			'خدمت4',
 		],
 	},
 	{
-		title: 'Resources',
-		description: [
-			'Resource',
-			'اینم عوض کردم',
-			'Another resource',
-			'Final resource',
-		],
-	},
-	{
-		title: 'Legal',
-		description: ['اینا همه عوض میشن', 'Terms of use'],
+		title: 'مقررات',
+		description: ['قانون1', 'قانون2'],
 	},
 ];
 

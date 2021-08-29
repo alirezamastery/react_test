@@ -16,9 +16,7 @@ function HeaderLower() {
         <nav className="navbar navbar-expand-lg navbar-light  justify-content-between border-top border-light shadow" style={{ backgroundColor: "#e6e6e6" }}>
             <div className="container">
 
-                <button className="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarLower" aria-controls="navbarLower" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+
                 <div className="collapse navbar-collapse ml-auto" id="navbarLower">
                     <ul className="navbar-nav">
                         <li className="nav-item dropdown">
@@ -42,11 +40,14 @@ function HeaderLower() {
                         </li>
                     </ul>
                 </div>
-                <Link to="/user/cart">
-                    <button className="btn btn-link">سبد خرید({itemsNum})</button>
-                </Link>
-                <button className="btn btn-warning" onClick={() => dispatch({ type: cartActions.CLEAR_CART })}>حذف سبد</button>
 
+                <Link to="/user/cart">
+                    <button className="btn btn-link shadow-none">سبد خرید({itemsNum})</button>
+                </Link>
+                <button className="btn btn-warning shadow-none" onClick={() => dispatch({ type: cartActions.CLEAR_CART })}>حذف سبد</button>
+                <button className="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarLower" aria-controls="navbarLower" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
             </div>
         </nav>
     );

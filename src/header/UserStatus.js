@@ -9,9 +9,9 @@ import useIsAuthenticated from '../auth/IsAuthenticated';
 export default function UserStatus() {
     const auth = useSelector(state => state.auth)
     const dispatch = useDispatch()
-    const [athenticated, username, loading] = useIsAuthenticated(auth.userID)
+    const [athenticated, username, loading] = useIsAuthenticated()
 
-    console.log("in UserStatusTEST | userDetails: ", auth, athenticated, username, loading)
+    // console.log("in UserStatusTEST | userDetails: ", auth, athenticated, username, loading)
     // console.log("in UserStatusTEST | athenticated, username, loading: ", athenticated, username, loading)
 
     if (athenticated) {
